@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Blog Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Inline styles mixed with external CSS - bad practice -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>📝 Legacy Blog Platform</h1>
+            <p style="color: #666;">Built in 2019 - Needs Modernization</p>
+        </header>
+
+        <!-- No form validation -->
+        <div class="create-post">
+            <h2>Create New Post</h2>
+            <form id="postForm">
+                <input type="text" id="title" placeholder="Post Title" required>
+                <input type="text" id="author" placeholder="Author Name">
+                <textarea id="content" placeholder="Post content..." rows="5" required></textarea>
+                <button type="submit" style="background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+                    Publish Post
+                </button>
+            </form>
+        </div>
+
+        <hr style="margin: 40px 0; border: 1px solid #ddd;">
+
+        <!-- Posts container -->
+        <div id="posts">
+            <h2>All Posts</h2>
+            <div id="postsList"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
