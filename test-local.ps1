@@ -1,11 +1,14 @@
-# Quick Test Script
-# Run the legacy app locally to see how it works
+# Quick Test Script - Modernized for FastAPI
 
-Write-Host "`n=== LEGACY BLOG - LOCAL TEST ===`n" -ForegroundColor Cyan
+Write-Host "`n"
+Write-Host "╔══════════════════════════════════════════════════════╗" -ForegroundColor Cyan
+Write-Host "║           🚀 MODERN BLOG - LOCAL TEST                ║" -ForegroundColor Cyan
+Write-Host "╚══════════════════════════════════════════════════════╝" -ForegroundColor Cyan
+Write-Host "`n"
 
 # Check if in correct directory
 if (-not (Test-Path "app.py")) {
-    Write-Host "❌ Run this from the demo-legacy-blog directory!" -ForegroundColor Red
+    Write-Host "❌ Error: Run this from the project root directory!" -ForegroundColor Red
     exit 1
 }
 
@@ -16,13 +19,15 @@ if (-not (Test-Path "venv")) {
 }
 
 # Activate and install
-Write-Host "📥 Installing dependencies..." -ForegroundColor Yellow
+Write-Host "📥 Installing modern dependencies..." -ForegroundColor Yellow
 & .\venv\Scripts\Activate.ps1
 pip install -q -r requirements.txt
 
 # Run the app
-Write-Host "`n✨ Starting Legacy Blog App..." -ForegroundColor Green
-Write-Host "   URL: http://localhost:5000" -ForegroundColor Cyan
-Write-Host "   Press Ctrl+C to stop`n" -ForegroundColor Yellow
+Write-Host "`n✨ Starting Modernized Backend..." -ForegroundColor Green
+Write-Host "   API URL:  http://localhost:8000" -ForegroundColor Cyan
+Write-Host "   Frontend: Open index.html in your browser" -ForegroundColor Cyan
+Write-Host "   Docs:     http://localhost:8000/docs" -ForegroundColor Cyan
+Write-Host "`n   Press Ctrl+C to stop the server`n" -ForegroundColor Yellow
 
 python app.py
