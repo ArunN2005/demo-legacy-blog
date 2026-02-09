@@ -4,7 +4,6 @@ __pycache__/
 *.pyd
 .Python
 venv/
-.venv/
 env/
 ENV/
 .vscode/
@@ -12,5 +11,6 @@ ENV/
 *.swp
 *.swo
 .DS_Store
-node_modules/
+.env
 dist/
+build/
