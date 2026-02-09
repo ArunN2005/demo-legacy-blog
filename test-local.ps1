@@ -1,10 +1,8 @@
-# Quick Test Script - Modernized for FastAPI
+# Quick Test Script - Modernized Local Test
+# Run the modernized app locally
 
-Write-Host "`n"
-Write-Host "╔══════════════════════════════════════════════════════╗" -ForegroundColor Cyan
-Write-Host "║           🚀 MODERN BLOG - LOCAL TEST                ║" -ForegroundColor Cyan
-Write-Host "╚══════════════════════════════════════════════════════╝" -ForegroundColor Cyan
-Write-Host "`n"
+Clear-Host
+Write-Host "`n=== MODERNIZED BLOG - LOCAL TEST ===`n" -ForegroundColor Cyan
 
 # Check if in correct directory
 if (-not (Test-Path "app.py")) {
@@ -24,10 +22,13 @@ Write-Host "📥 Installing modern dependencies..." -ForegroundColor Yellow
 pip install -q -r requirements.txt
 
 # Run the app
-Write-Host "`n✨ Starting Modernized Backend..." -ForegroundColor Green
-Write-Host "   API URL:  http://localhost:8000" -ForegroundColor Cyan
+Write-Host "`n✨ Starting Modernized Blog API..." -ForegroundColor Green
+Write-Host "   API URL: http://localhost:8000" -ForegroundColor Cyan
 Write-Host "   Frontend: Open index.html in your browser" -ForegroundColor Cyan
-Write-Host "   Docs:     http://localhost:8000/docs" -ForegroundColor Cyan
-Write-Host "`n   Press Ctrl+C to stop the server`n" -ForegroundColor Yellow
+Write-Host "   Press Ctrl+C to stop`n" -ForegroundColor Yellow
+
+# Set environment variables if needed
+$env:FLASK_ENV = "development"
+$env:FLASK_APP = "app.py"
 
 python app.py
