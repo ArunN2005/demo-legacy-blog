@@ -1,34 +1,36 @@
-# Quick Test Script - Modernized Local Test
-# Run the modernized app locally
+# Lazarus Engine - Local Test Script
+# Modernized to handle Port 8000 and Virtual Environments
 
 Clear-Host
-Write-Host "`n=== MODERNIZED BLOG - LOCAL TEST ===`n" -ForegroundColor Cyan
+Write-Host "✨ LAZARUS ENGINE - LOCAL TEST RUNNER" -ForegroundColor Cyan
+Write-Host "--------------------------------------" -ForegroundColor Gray
 
-# Check if in correct directory
+# Check for app.py
 if (-not (Test-Path "app.py")) {
-    Write-Host "❌ Error: Run this from the project root directory!" -ForegroundColor Red
+    Write-Host "❌ Error: app.py not found in current directory!" -ForegroundColor Red
     exit 1
 }
 
-# Create virtual environment if needed
+# Virtual Environment Setup
 if (-not (Test-Path "venv")) {
     Write-Host "📦 Creating virtual environment..." -ForegroundColor Yellow
     python -m venv venv
 }
 
-# Activate and install
-Write-Host "📥 Installing modern dependencies..." -ForegroundColor Yellow
+# Dependency Installation
+Write-Host "📥 Syncing dependencies..." -ForegroundColor Yellow
 & .\venv\Scripts\Activate.ps1
 pip install -q -r requirements.txt
 
-# Run the app
-Write-Host "`n✨ Starting Modernized Blog API..." -ForegroundColor Green
-Write-Host "   API URL: http://localhost:8000" -ForegroundColor Cyan
-Write-Host "   Frontend: Open index.html in your browser" -ForegroundColor Cyan
-Write-Host "   Press Ctrl+C to stop`n" -ForegroundColor Yellow
+# Launch Backend
+Write-Host "`n🚀 Starting Backend API..." -ForegroundColor Green
+Write-Host "   Endpoint: http://localhost:8000/api/posts" -ForegroundColor Blue
 
-# Set environment variables if needed
-$env:FLASK_ENV = "development"
-$env:FLASK_APP = "app.py"
+# Launch Frontend (Instructions)
+Write-Host "`n🌐 Frontend Instructions:" -ForegroundColor Yellow
+Write-Host "   To view the UI, open 'index.html' in your browser." -ForegroundColor White
+Write-Host "   Note: Ensure the backend is running simultaneously.`n" -ForegroundColor White
+
+Write-Host "⌨️  Press Ctrl+C to stop the server.`n" -ForegroundColor Gray
 
 python app.py
