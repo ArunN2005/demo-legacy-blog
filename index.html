@@ -1,111 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>window.__API_BASE_URL__ = "https://8000-iljsz1d1l8u7215g1t5m4.e2b.app";</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modernized Blog Platform | Lazarus Engine</title>
+    <title>Lazarus Blog | Modernized Legacy</title>
     <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS for Modern Styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
 </head>
-<body class="bg-slate-50 min-h-screen font-sans text-slate-900">
-    
-    <div class="max-w-4xl mx-auto px-4 py-12">
-        <!-- Header Section -->
-        <header class="text-center mb-16">
-            <div class="inline-block p-3 bg-blue-600 rounded-2xl shadow-lg shadow-blue-200 mb-6">
-                <span class="text-3xl">📝</span>
-            </div>
-            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 mb-3">
-                Modernized Blog Platform
-            </h1>
-            <p class="text-slate-500 text-lg max-w-md mx-auto">
-                A legacy application resurrected and enhanced with modern design principles.
-            </p>
-            <div class="mt-4 flex justify-center gap-2">
-                <span class="px-3 py-1 bg-slate-200 text-slate-600 text-xs font-bold rounded-full uppercase tracking-wider">Legacy Logic</span>
-                <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-full uppercase tracking-wider">Modern UI</span>
-            </div>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header class="glass-header">
+            <h1>📝 <span class="text-yellow">Lazarus</span> <span class="text-blue">Blog</span></h1>
+            <p class="subtitle">Resurrected Legacy Platform v6.0</p>
         </header>
 
-        <!-- Create Post Section -->
-        <section class="bg-white rounded-3xl shadow-xl shadow-slate-200/60 p-8 mb-12 border border-slate-100">
-            <div class="flex items-center mb-8">
-                <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mr-4">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        <main class="content-grid">
+            <!-- Create Post Section -->
+            <section class="create-post glass-panel">
+                <div class="panel-header">
+                    <h2>Create New Post</h2>
+                    <div class="status-dot"></div>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-800">Create New Post</h2>
-            </div>
-
-            <form id="postForm" class="space-y-5">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="space-y-2">
-                        <label for="title" class="text-sm font-semibold text-slate-700 ml-1">Post Title</label>
-                        <input type="text" id="title" placeholder="Enter a catchy title..." required
-                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all outline-none">
+                <form id="postForm">
+                    <div class="input-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="What's on your mind?" required>
                     </div>
-                    <div class="space-y-2">
-                        <label for="author" class="text-sm font-semibold text-slate-700 ml-1">Author Name</label>
-                        <input type="text" id="author" placeholder="Your name (optional)"
-                            class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all outline-none">
+                    <div class="input-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" placeholder="Your name (optional)">
                     </div>
-                </div>
-                <div class="space-y-2">
-                    <label for="content" class="text-sm font-semibold text-slate-700 ml-1">Post Content</label>
-                    <textarea id="content" placeholder="What's on your mind?" rows="5" required
-                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all outline-none resize-none"></textarea>
-                </div>
-                <div class="pt-2">
-                    <button type="submit" 
-                        class="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98] flex items-center justify-center">
-                        <span>Publish Post</span>
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                    <div class="input-group">
+                        <label for="content">Content</label>
+                        <textarea id="content" placeholder="Write your story here..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Publish Post</span>
+                        <span class="btn-icon">🚀</span>
                     </button>
+                </form>
+            </section>
+
+            <!-- Posts List Section -->
+            <section id="posts" class="posts-section">
+                <div class="section-header">
+                    <h2>All Posts</h2>
+                    <div class="post-count-badge" id="postCount">...</div>
                 </div>
-            </form>
-        </section>
-
-        <!-- Divider -->
-        <div class="relative flex py-8 items-center">
-            <div class="flex-grow border-t border-slate-200"></div>
-            <span class="flex-shrink mx-4 text-slate-400 text-sm font-medium">Recent Activity</span>
-            <div class="flex-grow border-t border-slate-200"></div>
-        </div>
-
-        <!-- Posts Container -->
-        <section id="posts" class="space-y-6">
-            <div class="flex items-center justify-between mb-8">
-                <h2 class="text-2xl font-bold text-slate-800">All Posts</h2>
-                <button onclick="loadPosts()" class="p-2 text-slate-400 hover:text-blue-600 transition-colors" title="Refresh Feed">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                </button>
-            </div>
-            <div id="postsList" class="min-h-[200px]">
-                <!-- Posts will be injected here by app.js -->
-                <div class="flex justify-center py-12">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                <div id="postsList" class="posts-container">
+                    <!-- Posts will be injected here by app.js -->
+                    <div class="loading-spinner"></div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <!-- Footer -->
-        <footer class="mt-20 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
-            <p>&copy; 2024 Lazarus Engine Modernization. All original logic preserved.</p>
+        <footer class="glass-footer">
+            <p>&copy; 2024 Lazarus Engine. Preserving the past, styling the future.</p>
         </footer>
     </div>
 
