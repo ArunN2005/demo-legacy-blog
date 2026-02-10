@@ -1,39 +1,42 @@
 # 🚀 Modernized Legacy Blog Platform
 
-This repository contains a professionally enhanced version of the 2019 Legacy Blog Platform. While the core business logic and API structure remain identical to the original for 100% compatibility, the user interface and developer experience have been brought up to modern standards.
+![Version](https://img.shields.io/badge/version-6.0-blue.svg)
+![Status](https://img.shields.io/badge/status-resurrected-success.svg)
+
+A simple blog platform originally built in 2019, now enhanced with the **Lazarus Engine v6.0**. This version preserves all original business logic while introducing a modern, high-performance UI and robust API structure.
 
 ## ✨ Enhancements
-- **Modern UI/UX**: Completely redesigned with Tailwind CSS and modern design principles.
-- **Responsive Design**: Fully functional on mobile, tablet, and desktop.
-- **Improved Codebase**: Refactored JavaScript using `async/await` and modern ES6+ syntax.
-- **API Standards**: Backend updated to support CORS and standardized JSON responses.
-- **Container Ready**: Optimized for modern deployment workflows.
-- **Data Seeding**: Automatic database initialization with sample content.
+- **UI/UX**: Modern Glassmorphism design with a Yellow/Blue high-contrast theme.
+- **Frontend**: Migrated to modern asynchronous JavaScript with improved error handling.
+- **Backend**: Ported to Port 8000, added CORS support, and implemented automatic data seeding.
+- **Responsiveness**: Fully fluid layout using modern CSS variables and Flexbox/Grid.
 
-## 🛠 Tech Stack
-- **Backend**: Flask (Python 3.x)
-- **Frontend**: Vanilla JS (ES6+), Tailwind CSS, Google Fonts (Inter)
-- **API**: RESTful JSON
+## 🛠️ Tech Stack
+- **Backend**: Flask (Python)
+- **Frontend**: Vanilla JS (ES6+), Modern CSS3
+- **Database**: In-memory (Preserved from original)
 
 ## 🚀 Quick Start
 
-1. **Install Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Backend Setup
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-2. **Run the Server**:
-   ```bash
-   python app.py
-   ```
-   The API will be available at `http://localhost:8000`
+# Run the server
+python app.py
+```
+The API will be available at `http://localhost:8000`
 
-3. **Open Frontend**:
-   Simply open `index.html` in your browser or use a Live Server.
+### 2. Frontend Setup
+Simply open `index.html` in your browser or serve it via a local web server.
 
-## 📡 API Endpoints (Preserved)
-- `GET /api/posts` - Retrieve all blog posts
-- `POST /api/posts` - Create a new blog post
-- `GET /api/posts/<id>` - Retrieve a specific post
-- `PUT /api/posts/<id>` - Update an existing post
-- `DELETE /api/posts/<id>` - Remove a post
+## 📡 API Endpoints
+- `GET /api/posts` - Retrieve all blog entries
+- `POST /api/posts` - Create a new entry
+- `GET /api/posts/<id>` - Retrieve a specific entry
+- `PUT /api/posts/<id>` - Update an entry
+- `DELETE /api/posts/<id>` - Remove an entry
+
+---
+*Resurrected by Lazarus Engine - Absolute Preservation Mode*
