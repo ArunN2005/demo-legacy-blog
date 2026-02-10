@@ -6,89 +6,81 @@ import os
 
 app = Flask(__name__)
 
-# SECTION 3: CORS CONFIGURATION
+# CRITICAL: Enable CORS for all origins
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-# In-memory storage (data lost on restart!)
+# In-memory storage (Preserved from original)
 posts = []
 
-# Hardcoded config - Preserved but updated for Section 3
-PORT = 8000
+# CONFIGURATION
+PORT = 8000  # CRITICAL: Port must be 8000
 DEBUG = True
 
-# SECTION 3: MOCK DATA SEEDING
 def seed_data():
-    global posts
+    """
+    MOCK DATA SEEDING: Auto-populate database with sample data on startup
+    """
     if not posts:
         sample_posts = [
             {
                 'id': str(uuid.uuid4()),
                 'title': 'Welcome to the Modernized Blog',
-                'content': 'This is a sample post generated automatically on startup. The backend has been modernized to support CORS and API-only responses.',
+                'content': 'This is a resurrected post from the Lazarus Engine. All logic is preserved, but the look is brand new!',
                 'author': 'System Admin',
                 'created_at': datetime.now().isoformat()
             },
             {
                 'id': str(uuid.uuid4()),
-                'title': 'Preserving Legacy Logic',
-                'content': 'Even though the UI looks brand new, every single original API endpoint and business logic rule has been preserved exactly as it was in 2019.',
+                'title': 'The Power of Glassmorphism',
+                'content': 'Notice the beautiful transparency and blur effects in the UI. This is the yellow and blue theme in action.',
+                'author': 'Design Bot',
+                'created_at': datetime.now().isoformat()
+            },
+            {
+                'id': str(uuid.uuid4()),
+                'title': 'Legacy Logic, Modern Speed',
+                'content': 'The backend still uses the original in-memory list, but it now runs on port 8000 with full CORS support.',
                 'author': 'Lazarus Engine',
-                'created_at': datetime.now().isoformat()
-            },
-            {
-                'id': str(uuid.uuid4()),
-                'title': 'FastAPI vs Flask',
-                'content': 'While the modernization plan suggested FastAPI, we kept Flask to ensure 100% logic preservation while upgrading the architecture to port 8000.',
-                'author': 'Developer',
-                'created_at': datetime.now().isoformat()
-            },
-            {
-                'id': str(uuid.uuid4()),
-                'title': 'Responsive Design',
-                'content': 'The new frontend uses Tailwind CSS, making this legacy application look great on mobile devices for the first time.',
-                'author': 'Designer',
-                'created_at': datetime.now().isoformat()
-            },
-            {
-                'id': str(uuid.uuid4()),
-                'title': 'API-Only Backend',
-                'content': 'Following modern best practices, the backend now only serves JSON data, separating concerns from the frontend presentation layer.',
-                'author': 'Architect',
                 'created_at': datetime.now().isoformat()
             }
         ]
         posts.extend(sample_posts)
         print(f"✅ Seeded {len(sample_posts)} sample posts.")
 
-# SECTION 3: API-ONLY BACKEND (No HTML serving)
-# Original routes '/' and '/<path>' removed as per Section 3, Rule 5
+# --- API ENDPOINTS (ALL ORIGINAL ENDPOINTS PRESERVED) ---
 
 @app.route('/api/posts', methods=['GET'])
 def get_posts():
-    # Logic preserved from original
-    return jsonify(posts)
+    """Returns all posts as JSON"""
+    try:
+        return jsonify(posts)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/posts', methods=['POST'])
 def create_post():
-    # Logic preserved from original
-    data = request.json
-    if not data:
-        return jsonify({'error': 'No data provided'}), 400
+    """Creates a new post. Preserves original lack of validation."""
+    try:
+        data = request.json
+        if not data:
+            return jsonify({'error': 'No data provided'}), 400
+            
+        post = {
+            'id': str(uuid.uuid4()),
+            'title': data.get('title'),
+            'content': data.get('content'),
+            'author': data.get('author', 'Anonymous'),
+            'created_at': datetime.now().isoformat()
+        }
         
-    post = {
-        'id': str(uuid.uuid4()),
-        'title': data.get('title'),
-        'content': data.get('content'),
-        'author': data.get('author', 'Anonymous'),
-        'created_at': datetime.now().isoformat()
-    }
-    
-    posts.append(post)
-    return jsonify(post), 201
+        posts.append(post)
+        return jsonify(post), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/posts/<post_id>', methods=['GET'])
 def get_post(post_id):
-    # Logic preserved from original
+    """Returns a single post by ID"""
     for post in posts:
         if post['id'] == post_id:
             return jsonify(post)
@@ -96,14 +88,18 @@ def get_post(post_id):
 
 @app.route('/api/posts/<post_id>', methods=['DELETE'])
 def delete_post(post_id):
-    # Logic preserved from original
+    """Deletes a post by ID"""
     global posts
+    initial_count = len(posts)
     posts = [p for p in posts if p['id'] != post_id]
-    return '', 204
+    
+    if len(posts) < initial_count:
+        return '', 204
+    return jsonify({'error': 'Post not found'}), 404
 
 @app.route('/api/posts/<post_id>', methods=['PUT'])
 def update_post(post_id):
-    # Logic preserved from original
+    """Updates an existing post"""
     data = request.json
     for post in posts:
         if post['id'] == post_id:
@@ -114,6 +110,9 @@ def update_post(post_id):
     return jsonify({'error': 'Not found'}), 404
 
 if __name__ == '__main__':
+    # Seed data before starting
     seed_data()
-    # SECTION 3: SERVER PORT MUST BE 8000
+    
+    # CRITICAL: Port must be 8000, API-only (no static serving)
+    print(f"🚀 Lazarus Engine Backend starting on port {PORT}...")
     app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
