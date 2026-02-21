@@ -1,31 +1,44 @@
-# Push to GitHub Instructions
+# Push to GitHub Instructions - ENHANCED STYLING
 
-Write-Host "`n=== PUSH TO GITHUB ===`n" -ForegroundColor Cyan
+Clear-Host
+Write-Host "██████████████████████████████████████████████████████████" -ForegroundColor Cyan
+Write-Host "█                                                        █" -ForegroundColor Cyan
+Write-Host "█   LAZARUS ENGINE - GITHUB DEPLOYMENT MODULE            █" -ForegroundColor Cyan
+Write-Host "█                                                        █" -ForegroundColor Cyan
+Write-Host "██████████████████████████████████████████████████████████" -ForegroundColor Cyan
+Write-Host ""
 
-Write-Host "1️⃣  Go to https://github.com/new" -ForegroundColor Yellow
-Write-Host "    Repository name: demo-legacy-blog" -ForegroundColor White
-Write-Host "    Description: Legacy blog platform needing modernization" -ForegroundColor White
-Write-Host "    Public repository" -ForegroundColor White
-Write-Host "    DON'T initialize with README (we already have one)`n" -ForegroundColor White
+Write-Host "1️⃣  PREPARATION" -ForegroundColor Yellow
+Write-Host "    Go to: https://github.com/new" -ForegroundColor White
+Write-Host "    Name:  demo-legacy-blog" -ForegroundColor Gray
+Write-Host "    Mode:  Public" -ForegroundColor Gray
+Write-Host ""
 
-Write-Host "2️⃣  After creating, run these commands:`n" -ForegroundColor Yellow
+Write-Host "2️⃣  CONFIGURATION" -ForegroundColor Yellow
+$username = Read-Host "    Enter your GitHub username"
+$repoUrl = "https://github.com/$username/demo-legacy-blog.git"
 
-$username = Read-Host "Enter your GitHub username"
-
-Write-Host "`ngit remote add origin https://github.com/$username/demo-legacy-blog.git" -ForegroundColor Green
-Write-Host "git branch -M main" -ForegroundColor Green
-Write-Host "git push -u origin main`n" -ForegroundColor Green
-
-Write-Host "Ready to copy? (Y/N): " -ForegroundColor Cyan -NoNewline
-$ready = Read-Host
+Write-Host ""
+Write-Host "3️⃣  EXECUTION" -ForegroundColor Yellow
+Write-Host "    Ready to push to $repoUrl?" -ForegroundColor White
+$ready = Read-Host "    Confirm (Y/N)"
 
 if ($ready -eq 'Y' -or $ready -eq 'y') {
-    git remote add origin https://github.com/$username/demo-legacy-blog.git
+    Write-Host "`n🚀 Initializing repository..." -ForegroundColor Cyan
+    git init
+    git add .
+    git commit -m "Resurrection: Modernized with Lazarus Engine v6.0"
+    
+    Write-Host "🔗 Connecting to remote..." -ForegroundColor Cyan
+    git remote add origin $repoUrl
     git branch -M main
+    
+    Write-Host "📤 Pushing to GitHub..." -ForegroundColor Cyan
     git push -u origin main
     
-    Write-Host "`n✅ Pushed to GitHub!" -ForegroundColor Green
-    Write-Host "   Test URL: https://github.com/$username/demo-legacy-blog`n" -ForegroundColor Cyan
+    Write-Host "`n✅ SUCCESS!" -ForegroundColor Green
+    Write-Host "   View your code: $repoUrl" -ForegroundColor Cyan
 } else {
-    Write-Host "`nCopy the commands above and run manually.`n" -ForegroundColor Yellow
+    Write-Host "`n❌ Deployment cancelled by user." -ForegroundColor Red
 }
+Write-Host ""

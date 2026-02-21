@@ -11,3 +11,6 @@ ENV/
 *.swp
 *.swo
 .DS_Store
+.env
+dist/
+build/

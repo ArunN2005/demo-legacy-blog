@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>window.__API_BASE_URL__ = "https://8000-iljsz1d1l8u7215g1t5m4.e2b.app";</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Blog Platform</title>
+    <title>Lazarus Blog | Modernized Legacy</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Inline styles mixed with external CSS - bad practice -->
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-        <header style="text-align: center; margin-bottom: 40px;">
-            <h1>📝 Legacy Blog Platform</h1>
-            <p style="color: #666;">Built in 2019 - Needs Modernization</p>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header class="glass-header">
+            <h1>📝 <span class="text-yellow">Lazarus</span> <span class="text-blue">Blog</span></h1>
+            <p class="subtitle">Resurrected Legacy Platform v6.0</p>
         </header>
 
-        <!-- No form validation -->
-        <div class="create-post">
-            <h2>Create New Post</h2>
-            <form id="postForm">
-                <input type="text" id="title" placeholder="Post Title" required>
-                <input type="text" id="author" placeholder="Author Name">
-                <textarea id="content" placeholder="Post content..." rows="5" required></textarea>
-                <button type="submit" style="background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-                    Publish Post
-                </button>
-            </form>
-        </div>
+        <main class="content-grid">
+            <!-- Create Post Section -->
+            <section class="create-post glass-panel">
+                <div class="panel-header">
+                    <h2>Create New Post</h2>
+                    <div class="status-dot"></div>
+                </div>
+                <form id="postForm">
+                    <div class="input-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="What's on your mind?" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" placeholder="Your name (optional)">
+                    </div>
+                    <div class="input-group">
+                        <label for="content">Content</label>
+                        <textarea id="content" placeholder="Write your story here..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span class="btn-text">Publish Post</span>
+                        <span class="btn-icon">🚀</span>
+                    </button>
+                </form>
+            </section>
 
-        <hr style="margin: 40px 0; border: 1px solid #ddd;">
+            <!-- Posts List Section -->
+            <section id="posts" class="posts-section">
+                <div class="section-header">
+                    <h2>All Posts</h2>
+                    <div class="post-count-badge" id="postCount">...</div>
+                </div>
+                <div id="postsList" class="posts-container">
+                    <!-- Posts will be injected here by app.js -->
+                    <div class="loading-spinner"></div>
+                </div>
+            </section>
+        </main>
 
-        <!-- Posts container -->
-        <div id="posts">
-            <h2>All Posts</h2>
-            <div id="postsList"></div>
-        </div>
+        <footer class="glass-footer">
+            <p>&copy; 2024 Lazarus Engine. Preserving the past, styling the future.</p>
+        </footer>
     </div>
 
     <script src="app.js"></script>
